@@ -14,7 +14,7 @@
 
 // export default Page
 import Image from 'next/image';
-
+import { FC } from 'react'
 const Page: FC = () => {
   return (
     <div className="min-h-screen bg-black text-white p-6">
