@@ -36,7 +36,7 @@
 // }
 
 // export default Header
-'use client'; // Директива, чтобы указать, что этот компонент работает на клиенте
+'use client';
 
 import { Fingerprint, Phone } from 'lucide-react';
 import Link from 'next/link';
@@ -55,52 +55,52 @@ const Header: FC = () => {
     setMenuOpen(!isMenuOpen);
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
-    <header className="bg-gray-800 text-white p-4">
+    <header className="bg-gray-800 text-white p-4 relative z-20">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center gap-2">
-          {/* Иконка Fingerprint */}
           <Fingerprint className="text-3xl" />
           <Link href="/" className="text-xl font-semibold">Автосервис</Link>
         </div>
 
-        {/* Иконка телефона */}
-        <div className="hidden lg:block">
-          <Link href="tel:+37494655489" className="text-lg flex items-center gap-2 hover:text-red-500">
-            <Phone className="text-xl" />
-            +37494655489
-          </Link>
-        </div>
+        <div className="flex items-center justify-center gap-2">
+  <Phone className="text-xl lg:hidden" />
+  <Link href="tel:+37494655489" className="text-lg flex items-center pl-15 justify-center gap-1 hover:text-red-500">
+    <span className="hidden lg:block">Call</span>
+  </Link>
+</div>
 
-        {/* Бургер-меню для мобильных */}
         <button
-          className="lg:hidden text-3xl"
+          className="lg:hidden text-3xl fixed top-4 right-4 z-50"
           onClick={toggleMenu}
         >
           &#9776;
         </button>
 
-        {/* Навигационное меню */}
         <nav
           className={`${
             isMenuOpen ? 'block' : 'hidden'
-          } lg:flex absolute lg:static bg-gray-800 w-full top-16 left-0 lg:w-auto lg:bg-transparent p-4 lg:p-0`}
+          } lg:flex absolute lg:static bg-gray-800 w-full top-16 left-0 lg:w-auto lg:bg-transparent p-4 lg:p-0 transition-all duration-300 ease-in-out z-50`}
         >
           <NavigationMenu>
             <NavigationMenuList className="flex flex-col lg:flex-row gap-4 lg:gap-6">
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/">Home</Link>
+                  <Link href="/" onClick={closeMenu}>Home</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/about">About</Link>
+                  <Link href="/about" onClick={closeMenu}>About</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/service">Service</Link>
+                  <Link href="/service" onClick={closeMenu}>Service</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
