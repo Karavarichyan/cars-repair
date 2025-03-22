@@ -36,43 +36,53 @@
 // }
 
 // export default Header
-'use client';
+'use client'
 
-import { Fingerprint, Phone } from 'lucide-react';
-import Link from 'next/link';
-import { FC, useState } from 'react';
+import { Fingerprint, Phone } from 'lucide-react'
+import Link from 'next/link'
+import { FC, useState } from 'react'
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-} from './ui/navigation-menu';
+} from './ui/navigation-menu'
 
 const Header: FC = () => {
-  const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(false)
 
   const toggleMenu = () => {
-    setMenuOpen(!isMenuOpen);
-  };
+    setMenuOpen(!isMenuOpen)
+  }
 
   const closeMenu = () => {
-    setMenuOpen(false);
-  };
+    setMenuOpen(false)
+  }
 
   return (
     <header className="bg-gray-800 text-white p-4 relative z-20">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center gap-2">
           <Fingerprint className="text-3xl" />
-          <Link href="/" className="text-xl font-semibold">Автосервис</Link>
+          <Link href="/" className="text-xl font-semibold">
+            Автосервис
+          </Link>
         </div>
 
-        <div className="flex items-center justify-center gap-2">
+        {/* <div className="flex items-center justify-center gap-2">
   <Phone className="text-xl lg:hidden" />
   <Link href="tel:+37494655489" className="text-lg flex items-center pl-15 justify-center gap-1 hover:text-red-500">
     <span className="hidden lg:block">Call</span>
   </Link>
-</div>
+</div> */}
+        <div className="flex items-center justify-center gap-2">
+          <Link
+            href="tel:+37494655489"
+            className="text-lg flex items-center justify-center pr-10 gap-1 hover:text-red-500"
+          >
+            <Phone className="text-xl lg:hidden" />
+          </Link>
+        </div>
 
         <button
           className="lg:hidden text-3xl fixed top-4 right-4 z-50"
@@ -90,17 +100,23 @@ const Header: FC = () => {
             <NavigationMenuList className="flex flex-col lg:flex-row gap-4 lg:gap-6">
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/" onClick={closeMenu}>Home</Link>
+                  <Link href="/" onClick={closeMenu}>
+                    Home
+                  </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/about" onClick={closeMenu}>About</Link>
+                  <Link href="/about" onClick={closeMenu}>
+                    About
+                  </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/service" onClick={closeMenu}>Service</Link>
+                  <Link href="/service" onClick={closeMenu}>
+                    Service
+                  </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
@@ -108,7 +124,7 @@ const Header: FC = () => {
         </nav>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
