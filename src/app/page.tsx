@@ -49,23 +49,15 @@
 // export default Page;
 import { FC } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 const Page: FC = () => {
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* <header className="p-4 bg-red-600 text-center text-xl font-bold">
-        Ավտոնորոգման Կենտրոն
-      </header> */}
-      {/* <nav className="flex justify-center space-x-6 p-4 bg-gray-900">
-        <Link href="/about" className="hover:text-red-500">Մեր Մասին</Link>
-        <Link href="/services" className="hover:text-red-500">Ծառայություններ</Link>
-      </nav> */}
+
       <main className="p-6 text-center">
         <h1 className="text-3xl font-bold mb-4">Բարի գալուստ Ավտոնորոգման Կենտրոն</h1>
         <p className="text-gray-400 mb-6">Մենք առաջարկում ենք լավագույն ծառայությունները ձեր մեքենայի համար</p>
 
-        {/* Chessboard style layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="flex items-center space-x-4">
             <div className="w-full h-60 relative">
